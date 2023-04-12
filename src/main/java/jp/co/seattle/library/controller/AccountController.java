@@ -65,8 +65,7 @@ public class AccountController {
 				return "createAccount";
 			}
 		} else {
-			model.addAttribute("errorMessage", "パスワードが一致しません。");
-			System.out.println("パスワードは８文字以上かつ半角英数字に設定してください。");
+			model.addAttribute("errorMessage", "パスワードは８文字以上かつ半角英数字に設定してください。");
 			return "createAccount";
 		}
 
