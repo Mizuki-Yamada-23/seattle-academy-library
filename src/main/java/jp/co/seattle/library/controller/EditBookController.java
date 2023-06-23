@@ -50,14 +50,17 @@ public class EditBookController {
 	 * @param description 説明文
 	 * @param model       モデル
 	 * @return 遷移先画面
+	 * @param review
 	 */
 	@Transactional
 	@RequestMapping(value = "/updateBook", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public String updateBook(Locale locale, @RequestParam("bookId") int bookId, @RequestParam("title") String title,
 			@RequestParam("author") String author, @RequestParam("publisher") String publisher,
 			@RequestParam("publishDate") String publishDate, @RequestParam("isbn") String isbn,
-			@RequestParam("description") String description, @RequestParam("thumbnail") MultipartFile file,
-			Model model) {
+			@RequestParam("description") String description, @RequestParam("favorite") String favorite,
+			@RequestParam("introduction") String introduction, @RequestParam("save") String save,
+			@RequestParam("review") String review, @RequestParam("money") int money,
+			@RequestParam("thumbnail") MultipartFile file, Model model) {
 		logger.info("Welcome updateBook! The client locale is {}.", locale);
 
 		// パラメータで受け取った書籍情報をDtoに格納する。
@@ -69,6 +72,11 @@ public class EditBookController {
 		bookInfo.setPublishDate(publishDate);
 		bookInfo.setIsbn(isbn);
 		bookInfo.setDescription(description);
+		bookInfo.setFavorite(favorite);
+		bookInfo.setIntroduction(introduction);
+		bookInfo.setSave(save);
+		bookInfo.setReview(review);
+		bookInfo.setMoney(money);
 
 		List<String> errorList = bookUtil.checkBookInfo(bookInfo);
 		// errorListに一つでもエラーメッセージが入っていたら登録しない
@@ -105,4 +113,6 @@ public class EditBookController {
 		// 一覧画面に遷移する
 		return "redirect:/home";
 	}
+
+
 }

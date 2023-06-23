@@ -290,6 +290,26 @@
 .rate-form input[type=radio]:checked ~ label {
 	color: #ffcc00;
 }
+
+.purchase13 {
+	font-size: 190%;
+	font-size: 120%;
+	padding: 5px 0;
+	max-width: 50.2%;
+	text-indent: 1em;
+	outline: none;
+	display: block;
+	border: solid 1px #707070;
+	border-radius: 0.2em;
+}
+
+.label555 {
+	display: block;
+	/* margin: 10px; */
+	width: 99.2%;
+	font-weight: bold;
+	text-shadow: 0px 0px 2px #707070;
+}
 </style>
 <meta charset="UTF-8">
 <title>書籍の追加｜シアトルライブラリ｜シアトルコンサルティング株式会社</title>
@@ -310,19 +330,9 @@
 	<header>
 		<div class="left">
 			<img class="mark" src="resources/img/logo.png" />
-			<div class="logo">METATEAM Library 書籍追加画面へようこそ！</div>
+			<div class="logo">METATEAM Library 購入者情報登録画面へようこそ！</div>
 		</div>
-		<div class="right">
-			<!-- 基本 -->
-			<%-- <ul>
-				<li><a href="<%=request.getContextPath()%>/home" class="menu">Home</a></li>
-				<li><a href="<%=request.getContextPath()%>/">ログアウト</a></li>
-			</ul> --%>
-			<!-- 基本 -->
-		</div>
-		<!-- スクリプト -->
-		<!-- ho-mu -->
-		</div>
+		<div class="right"></div>
 		<div class="layer2 js-modal2">
 			<div class="modal2">
 				<div class="modal2__inner">
@@ -403,140 +413,35 @@
 
 			  }); 
   </script>
-		<!-- スクリプト -->
 		</div>
 	</header>
 	<main>
-		<form action="<%=request.getContextPath()%>/insertBook" method="post"
-			enctype="multipart/form-data" id="data_upload_form">
-			<h1>書籍の追加</h1>
-			<div class="content_body add_book_content">
-				<div>
-					<span>書籍の画像</span> <span class="care care1">任意</span>
-					<div class="book_thumnail">
-						<img class="book_noimg" src="resources/img/noImg.png">
-					</div>
-					<input type="file" accept="image/*" name="thumbnail" id="thumbnail">
-				</div>
-				<div class="content_right">
-					<div>
-						<c:if test="${!empty errorList}">
-							<div class="error">
-								<c:forEach var="error" items="${errorList}">
-									<p>${error}</p>
-								</c:forEach>
-							</div>
-						</c:if>
-						<span>書籍名</span><span class="care care2">必須</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="title" value="${bookInfo.title}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="title" autocomplete="off">
-						</c:if>
-					</div>
-					<div>
-						<span>著者名</span><span class="care care2">必須</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="author" value="${bookInfo.author}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="author" autocomplete="off">
-						</c:if>
-					</div>
-					<div>
-						<span>出版社</span><span class="care care2">必須</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="publisher" value="${bookInfo.publisher}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="publisher">
-						</c:if>
-					</div>
-					<div>
-						<span>出版日</span><span class="care care2">必須</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="publishDate"
-								value="${bookInfo.publishDate}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="publishDate">
-						</c:if>
-					</div>
-					<div>
-						<span>ISBN</span><span class="care care1">任意</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="isbn" value="${bookInfo.isbn}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="isbn">
-						</c:if>
-					</div>
-					<div>
-						<span>説明文</span><span class="care care1">任意</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="description"
-								value="${bookInfo.description}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="description">
-						</c:if>
-					</div>
-					<div>
-						<span>金額</span><span class="care care1">任意</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="money" value="${bookInfo.money}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="money" value="0">
-						</c:if>
-					</div>
-					<div>
-						<span>お気に入り</span><span class="care care1">任意</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="favorite" value="${bookInfo.favorite}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="favorite">
-						</c:if>
-					</div>
-					<div>
-						<span>紹介</span><span class="care care1">任意</span>
-						<c:if test="${!empty bookInfo}">
-							<input type="text" name="introduction"
-								value="${bookInfo.favorite}">
-						</c:if>
-						<c:if test="${empty bookInfo}">
-							<input type="text" name="introduction">
-						</c:if>
-					</div>
-					<div>
-						<span class="care care1">任意</span> <input type="radio" name="save"
-							value="新しく書籍が追加されました!" checked="checked">新しく書籍が追加されました<input
-							type="radio" name="save" value="未読">未読 <input
-							type="radio" name="save" value="読書中">読書中 <input
-							type="radio" name="save" value="読了">読了
-						<%-- </c:if> --%>
-					</div>
-					<div class="rate-form">
-						<input id="star5" type="radio" name="review" value="★★★★★">
-						<label for="star5">★</label> <input id="star4" type="radio"
-							name="review" value="★★★★"> <label for="star4">★</label>
-						<input id="star3" type="radio" name="review" value="★★★">
-						<label for="star3">★</label> <input id="star2" type="radio"
-							name="review" value="★★"> <label for="star2">★</label> <input
-							id="star1" type="radio" name="review" value="★"> <label
-							for="star1">★</label> <input id="star0" type="radio"
-							name="review" value="" checked="checked"> <label
-							for="star0"></label>
-					</div>
-					<input type="hidden" id="bookId" name="bookId"
-						value="${bookInfo.bookId}">
-				</div>
+		<div class="authorization_head">
+			<img class="mark" src="resources/img/logo.png" />
+			<div class="logo">Seattle Library</div>
+		</div>
+		<div class="purchase10">
+			<div class="purchase11">
+				<form method="post" action="purchaseAccount">
+					<div class="title">購入者情報登録</div>
+					<label class="label555">お名前</label>
+					<input type="text" class="purchase13" id="purchaser" name="purchaser" autocomplete="off" required>
+					<label class="label555">フリガナ</label>
+					<input type="text" pattern="(?=.*?[\u30A1-\u30FC])[\u30A1-\u30FC\s]*" class="purchase13" id="furigana" name="furigana" autocomplete="off" required>
+					<label class="label555">メールアドレス</label>
+					<input type="email" class="purchase13" id="mail" name="mail" autocomplete="off" required>
+					<label class="label555">電話番号</label>
+					<input type="tel" pattern="\d{2,4}-\d{2,4}-\d{3,4}" class="purchase13" id="telephone" name="telephone" required>
+					<label class="label555">郵便番号</label>
+					<input type="text" pattern="\d{3}-?\d{4}" class="purchase13" id="post" name="post" autocomplete="postal-code" required>
+					<label class="label555">ご住所</label>
+					<input type="text" class="purchase13" id="address" name="address" placeholder="○○都○○区" autocomplete="off" required>
+					<input type="text" class="purchase13" id="block" name="block" placeholder="番地・マンション名" autocomplete="off" required>
+					<input type="submit" class="buttonpurchase" value="完了">
+				</form>
 			</div>
-			<div class="bookBtn_box">
-				<button type="submit" id="add-btn" class="btn_addBook">登録</button>
-			</div>
+			<div class="authorization_navi"></div>
+		</div>
 		</form>
 	</main>
 </body>

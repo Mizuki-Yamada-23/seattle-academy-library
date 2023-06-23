@@ -99,13 +99,15 @@ input {
 
 .books {
     display: inline-block;
-    margin-right: 10px;
+    margin: 10px;
+    padding: 20px;
     line-height: 1.5;
+    background: #FFCC66;
 }
 .book_thumnail {
     position: relative;
     width: 200px;
-    height: 250px;
+    height: 200px;
 }
 img.book_noimg, img.book_img{
     height:200px;
@@ -223,7 +225,7 @@ a:hover, button:hover {
 }
 
 
-button.btn_addBook, button.btn_editBook, button.btn_deleteBook,button.btn_rentBook,button.btn_updateBook,button.btn_returnBook,button.btn_bulkRegist {
+button.btn_addBook, button.btn_editBook, button.btn_deleteBook, button.btn_rentBook,button.btn_updateBook,button.btn_returnBook,button.btn_bulkRegist {
     border-radius: 30px;
     width: 120px;
     margin-top: 20px;

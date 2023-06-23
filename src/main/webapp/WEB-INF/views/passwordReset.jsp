@@ -26,8 +26,8 @@
 			</div>
 			<div class="authorization">
 				<div class="authorization_form">
-					<form method="post" action="createAccount">
-						<div class="title">アカウントの作成</div>
+					<form method="post" action="resetPassword">
+						<div class="title">パスワードリセット</div>
 						<label class="label">メールアドレス</label> <input type="email"
 							class="input" id="email" name="email" autocomplete="off" required>
 						<label class="label">パスワード</label> <input type="password"
@@ -38,7 +38,7 @@
 						<c:if test="${!empty errorMessage}">
 							<div class="error">${errorMessage}</div>
 						</c:if>
-						<input type="submit" class="button primary" value="作成する">
+						<input type="submit" class="button primary" value="リセット">
 					</form>
 				</div>
 				<div class="authorization_navi">
