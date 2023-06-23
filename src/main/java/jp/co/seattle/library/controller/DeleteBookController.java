@@ -21,7 +21,11 @@ public class DeleteBookController {
 
 	@RequestMapping(value = "/deleteBook", method = RequestMethod.POST)
 	public String deleteBook(Locale locale, int bookId, Model model) {
-
+		
+		
+//		bbokIdから情報を持ってくる
+//		データーベースから書籍
+		booksService.insertHistoryBook(bookId);
 		// 書籍情報を削除する
 		booksService.deleteBook(bookId);
 		// 一覧画面に遷移する

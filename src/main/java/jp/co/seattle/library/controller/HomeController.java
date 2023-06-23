@@ -48,56 +48,6 @@ public class HomeController {
 		}
 	}
 
-	//	//いいね
-	//	@RequestMapping(value = "/notRead", method = RequestMethod.GET)
-	//	public String notRead(Locale locale, @RequestParam("bookId") int bookId,
-	//			Model model) {
-	//
-	//		booksService.getNotRead(bookId);
-	//		return "redirect:/home";
-	//	}
-	//
-	//	@RequestMapping(value = "/reading", method = RequestMethod.GET)
-	//	public String Reading(Locale locale, @RequestParam("bookId") int bookId,
-	//			Model model) {
-	//
-	//		booksService.getReading(bookId);
-	//		return "redirect:/home";
-	//	}
-	//試し中
-	/**@RequestMapping(value = "/notRead", method = RequestMethod.GET)
-	public String notRead(Locale locale, @RequestParam("bookId") int bookId,
-			Model model) {
-	
-		booksService.getNotRead(bookId);
-		return "redirect:/home";
-	}
-	
-	@RequestMapping(value = "/reading", method = RequestMethod.GET)
-	public String Reading(Locale locale, @RequestParam("bookId") int bookId,
-			Model model) {
-	
-		booksService.getReading(bookId);
-		return "redirect:/home";
-	}
-	
-	@RequestMapping(value = "/readend", method = RequestMethod.GET)
-	public String Readend(Locale locale, @RequestParam("bookId") int bookId,
-			Model model) {
-	
-		booksService.getReadEnd(bookId);
-		return "redirect:/home";
-	}*/
-
-	//	試し中
-	/**@RequestMapping(value = "/readEnd", method = RequestMethod.GET)
-	public String readEnd(Locale locale, @RequestParam("bookId") int bookId,
-			Model model) {
-	
-		booksService.getReadEnd(bookId);
-		return "redirect:/home";
-	}*/
-
 	//レビュー
 	@RequestMapping(value = "/reviewBook", method = RequestMethod.POST)
 	public String reviewBook(Model model) {

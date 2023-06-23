@@ -59,9 +59,12 @@ public class AddBooksController {
 	public String insertBook(Locale locale, @RequestParam("title") String title, @RequestParam("author") String author,
 			@RequestParam("publisher") String publisher, @RequestParam("publishDate") String publishDate,
 			@RequestParam("isbn") String isbn, @RequestParam("description") String description,
+			@RequestParam("favorite") String favorite, @RequestParam("introduction") String introduction,
+			@RequestParam("save") String save, @RequestParam("money") int money, @RequestParam("review") String review,
 			@RequestParam("thumbnail") MultipartFile file, Model model, RedirectAttributes redirectAttributes) {
 		logger.info("Welcome insertBooks.java! The client locale is {}.", locale);
 
+		System.out.println(8);
 		// パラメータで受け取った書籍情報をDtoに格納する。
 		BookDetailsInfo bookInfo = new BookDetailsInfo();
 		bookInfo.setTitle(title);
@@ -70,6 +73,14 @@ public class AddBooksController {
 		bookInfo.setPublishDate(publishDate);
 		bookInfo.setIsbn(isbn);
 		bookInfo.setDescription(description);
+		bookInfo.setFavorite(favorite);
+		bookInfo.setIntroduction(introduction);
+		bookInfo.setSave(save);
+		bookInfo.setMoney(money);
+		//		bookInfo.setRead(read);
+		bookInfo.setReview(review);
+
+		System.out.println(3);
 
 		List<String> errorList = bookUtil.checkBookInfo(bookInfo);
 		// errorListに一つでもエラーメッセージが入っていたら登録しない
@@ -78,7 +89,6 @@ public class AddBooksController {
 			redirectAttributes.addFlashAttribute("errorList", errorList);
 			return "redirect:/addBook";
 		}
-
 		// クライアントのファイルシステムにある元のファイル名を設定する
 		String thumbnail = file.getOriginalFilename();
 
@@ -101,8 +111,8 @@ public class AddBooksController {
 		}
 
 		// 書籍情報を新規登録する
-		int bookId = booksService.registBook(bookInfo);
-		
+		booksService.registBook(bookInfo);
+
 		// 詳細画面に遷移する
 		return "redirect:/home";
 	}

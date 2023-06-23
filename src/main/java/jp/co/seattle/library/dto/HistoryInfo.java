@@ -9,7 +9,7 @@ import lombok.Data;
  */
 @Configuration
 @Data
-public class BookInfo {
+public class HistoryInfo {
 
 	private int bookId;
 
@@ -20,6 +20,8 @@ public class BookInfo {
 	private String publisher;
 
 	private String publishDate;
+	
+	private String isbn;
 
 	private String thumbnail;
 
@@ -43,18 +45,19 @@ public class BookInfo {
 	
 	private int subtotal;
 
-	public BookInfo() {
+	public HistoryInfo() {
 
 	}
 
 	// コンストラクタ
-	public BookInfo(int bookId, String title, String author, String publisher, String publishDate, String thumbnail,
+	public HistoryInfo(int bookId, String title, String author, String publisher, String publishDate, String isbn, String thumbnail,
 			String favorite, String introduction, String save, String review, int money, String buy, int number, int subtotal) {
 		this.bookId = bookId;
 		this.title = title;
 		this.author = author;
 		this.publisher = publisher;
 		this.publishDate = publishDate;
+		this.isbn = isbn;
 		this.thumbnail = thumbnail;
 		this.favorite = favorite;
 		this.introduction = introduction;

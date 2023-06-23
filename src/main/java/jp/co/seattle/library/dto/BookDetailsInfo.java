@@ -30,4 +30,24 @@ public class BookDetailsInfo {
 
 	private String description;
 
+	private String favorite;
+
+	private String nice;
+
+//	private String read;
+	
+	private String introduction;
+
+	private String save;
+	
+	private String review;
+	
+	private int money;
+	
+	private String buy;
+	
+	private int number;
+	
+	private int subtotal;
+
 }

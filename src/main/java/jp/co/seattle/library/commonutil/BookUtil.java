@@ -19,6 +19,8 @@ public class BookUtil {
 	private static final String REQUIRED_ERROR = "未入力の必須項目があります";
 	private static final String ISBN_ERROR = "ISBNの桁数または半角数字が正しくありません";
 	private static final String PUBLISHDATE_ERROR = "出版日は半角数字のYYYYMMDD形式で入力してください";
+	private static final String FAVORITE_ERROR = "💙国語⭐アニメ️🔺読んでいない本✌️おすすめ本️から選んでください";
+	/**private static final String MONEY_ERROR = "金額は半角数字で入力してください";*/
 
 	/**
 	 * 登録前のバリデーションチェック
@@ -42,6 +44,15 @@ public class BookUtil {
 		if (!checkDate(bookInfo.getPublishDate())) {
 			errorList.add(PUBLISHDATE_ERROR);
 		}
+
+		if (!checkFavorite(bookInfo.getFavorite())) {
+			errorList.add(FAVORITE_ERROR);
+		}
+
+		/**if (!bookMoney(bookInfo.getMoney())) {
+			errorList.add(MONEY_ERROR);
+		}*/
+
 		return errorList;
 	}
 
@@ -103,4 +114,34 @@ public class BookUtil {
 			return false;
 		}
 	}
+
+	private static boolean checkFavorite(String favorite) {
+		//TODO 💙⭐️🔺✌️のみ表示
+		String str1 = "💙";
+		String str2 = "⭐️";
+		String str3 = "🔺";
+		String str4 = "✌️";
+		if (!favorite.isEmpty()) {
+			if (str1.matches(favorite) || str2.matches(favorite) || str3.matches(favorite) || str4.matches(favorite)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return true;
+		}
+	}
+
+	/**private static boolean bookMoney(int money) {
+		//TODO　半角数字であればtrue
+		if (!money.isEmpty()) {
+			if (money.matches("^[0-9]+$")) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return true;
+		}
+	}*/
 }

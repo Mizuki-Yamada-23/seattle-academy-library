@@ -52,4 +52,12 @@ public class UsersService {
 		}
 	}
 
+	public void passwordUser(UserInfo userInfo) {
+
+		// SQL生成
+		String sql = "UPDATE users SET password = ? WHERE email = ?";
+
+		jdbcTemplate.update(sql, userInfo.getPassword(), userInfo.getEmail());
+	}
+
 }
